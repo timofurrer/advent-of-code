@@ -33,7 +33,7 @@ def solve_captcha(digits: str) -> int:
     # See the circular requirement
     digits = digits + digits[0]
     # count subsequent digits
-    subsequent_digit_sum = sum(int(x) if x == y else 0 for x, y in pairwise(digits))
+    subsequent_digit_sum = sum(int(x) for x, y in pairwise(digits) if x == y)
 
     return subsequent_digit_sum
 
