@@ -4,8 +4,9 @@
 # python bytecode files
 __pycache__/
 
-# pytest
+# testing
 .cache/
+.tox/
 
 # python virtualenv
 env/
