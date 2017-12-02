@@ -8,7 +8,7 @@ The solutions are written in Python compatible with Python 3.6+.
 ## Structure
 
 You can find my solutions in separate folders named by the date. <br>
-E.g. `2017/01` was Day 1 of the challenge in 2017.
+E.g. `year_2017/day_01` was Day 1 of the challenge in 2017.
 
 ## Run tests
 
