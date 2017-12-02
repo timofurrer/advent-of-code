@@ -54,17 +54,15 @@ def calculate_checksum(spreadsheet: List[List[int]]) -> int:
     9 4 7 3
     3 8 6 5
 
-    * In the first row, the only two numbers that evenly divide are 8 and 2; the result of this division is 4.
+    * In the first row, the only two numbers that evenly divide are 8 and 2;
+      the result of this division is 4.
     * In the second row, the two numbers are 9 and 3; the result is 3.
     * In the third row, the result is 2.
     """
-    checksum = 0
-    for row in spreadsheet:
-        for dividend, divisor in (sorted(x, reverse=True) for x in combinations(row, 2)):
-            if dividend % divisor == 0:  # evenly divisible
-                checksum += dividend // divisor
-
-    return checksum
+    return sum(dividend // divisor for row in spreadsheet
+               for dividend, divisor in
+               (sorted(x, reverse=True) for x in combinations(row, 2))
+               if dividend % divisor == 0)
 
 
 @pytest.mark.parametrize('spreadsheet, expected_checksum', [
