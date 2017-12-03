@@ -104,7 +104,9 @@ def manhatten_distance_ulam_spiral(square: int) -> int:
     * Data from square 1024 must be carried 31 steps.
     """
     origin = Point(0, 0)
+    # Get coordinate for the given square (Ulam Spiral)
     square_coord = get_coordinate_in_spiral(square)
+    # Manhatten distance
     return int(
             math.fabs(square_coord.y - origin.y) +
             math.fabs(square_coord.x - origin.x))
