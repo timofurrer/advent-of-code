@@ -38,7 +38,7 @@ def knothash(string, rounds=64, stdsuffix=[17, 31, 73, 47, 23],
                         sparse_hash[current_position:end_position + 1])
             else:
                 # wrapping
-                until_end_len = len(sparse_hash) - current_position
+                until_end_len = hash_len - current_position
 
                 reversed_sublist = list(reversed(
                     sparse_hash[current_position:] +
@@ -56,7 +56,7 @@ def knothash(string, rounds=64, stdsuffix=[17, 31, 73, 47, 23],
 
     # construct dense hash from sparse hash
     dense_hash_blocks = []
-    for i in range(0, len(sparse_hash), block_size):
+    for i in range(0, hash_len, block_size):
         block = functools.reduce(
                 operator.xor, sparse_hash[i:i + block_size], 0)
         dense_hash_blocks.append(block)
