@@ -1,4 +1,4 @@
-# Day 13: Packet Scanners ---
+# Day 13: Packet Scanners
 
 You need to cross a vast firewall. The firewall consists of several layers, each with a security scanner that moves back and forth across the layer. To succeed, you must not be detected by a scanner.
 
