@@ -55,19 +55,19 @@ def pattern_variations(pattern):
     return patterns
 
 
-def breakout_blocks(grid, size):
-    hsplits = np.hsplit(np.array(grid), len(grid) // size)
+def breakout_blocks(grid, amount_of_blocks):
+    hsplits = np.hsplit(np.array(grid), amount_of_blocks)
     blocks = []
     for hsplit in hsplits:
-        blocks.extend(np.vsplit(hsplit, len(grid) // size))
+        blocks.extend(np.vsplit(hsplit, amount_of_blocks))
     return blocks
 
 
-def merge_blocks(blocks, parts):
+def merge_blocks(blocks, amount_of_blocks):
     # concatenate blocks into one grid
     vstacks = []
-    for i in range(0, len(blocks), parts):
-        vstack = np.vstack(blocks[i:i + parts])
+    for i in range(0, len(blocks), amount_of_blocks):
+        vstack = np.vstack(blocks[i:i + amount_of_blocks])
         vstacks.append(vstack)
     return np.hstack(vstacks)
 
@@ -91,14 +91,16 @@ def create_pixel_art(rules, iterations):
         elif size % 3 == 0:
             blocksize = 3
 
-        blocks = breakout_blocks(grid, blocksize)
+        amount_of_blocks = size // blocksize
+
+        blocks = breakout_blocks(grid, amount_of_blocks)
 
         new_blocks = []
         for b in blocks:
             replacement = match_rule(b)
             new_blocks.append(replacement)
 
-        grid = merge_blocks(new_blocks, size // blocksize)
+        grid = merge_blocks(new_blocks, amount_of_blocks)
 
     return grid
 
