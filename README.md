@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/timofurrer/advent-of-code.svg?branch=master)](https://travis-ci.org/timofurrer/advent-of-code)
 
 This repository contains my solutions for [Advent of Code](http://adventofcode.com/). <br>
-The solutions are written in Python compatible with Python 3.6+.
+The solutions are written in Python compatible with Python 3.7+.
 
 ## Structure
 
