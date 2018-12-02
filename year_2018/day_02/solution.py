@@ -2,6 +2,7 @@
 Solution for the first puzzle of Day 1
 """
 
+import os
 import collections
 
 from typing import List, Optional
@@ -9,7 +10,7 @@ from typing import List, Optional
 import pytest
 
 # My puzzle input
-with open("input.txt") as input_file:
+with open(os.path.join(os.path.dirname(__file__), "input.txt")) as input_file:
     MY_PUZZLE_INPUT = [x.strip() for x in input_file.readlines()]
 
 
